@@ -7,7 +7,6 @@
 <meta name="description" content="Rizki Fermanta — Technical Support & IT Operations Specialist dengan 9+ tahun pengalaman, juga aktif sebagai web developer.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root{
     --cream:#0b130d;
@@ -270,7 +269,8 @@
     .scroll-cue::after{animation:none;}
     .reveal{transition:none;opacity:1;transform:none;}
     #typingText::after{animation:none;}
-  }
+  }  i[class*="fa-"]{display:inline-flex;align-items:center;justify-content:center;}
+  i[class*="fa-"] svg{width:1em;height:1em;}
 </style>
 </head>
 <body>
@@ -427,6 +427,18 @@
         <p>Portal absensi karyawan &amp; admin berbasis Progressive Web App dengan check-in/out digital dan laporan kehadiran real-time.</p>
         <a class="demo" href="https://absensi-karyawan-27b89.web.app/" target="_blank" rel="noreferrer">Live Demo →</a>
       </div>
+      <div class="card">
+        <span class="tag">WEB APP · POS</span>
+        <h3>PoStore — POS & Inventory Management</h3>
+        <p>Aplikasi Point of Sale untuk UMKM: kelola transaksi, produk, dan operasional toko dalam satu platform. Berperan di UI/UX dan pengembangan — alur transaksi, dashboard, manajemen produk, dengan fokus responsive design & scalability.</p>
+        <a class="demo" href="https://postore.my.id/" target="_blank" rel="noreferrer">Live Demo →</a>
+      </div>
+      <div class="card">
+        <span class="tag">AI · EDTECH</span>
+        <h3>Nahwu AI — Arabic Grammar Learning</h3>
+        <p>Aplikasi pembelajaran tata bahasa Arab berbasis AI — menganalisis struktur Nahwu (fi'il, fa'il, maf'ul bih, mubtada, khabar) dari teks yang dimasukkan. Fokus pada konsep produk, UI/UX, dan implementasi sebagai learning tool, bukan sekadar output analisis.</p>
+        <a class="demo" href="https://nahwu.sabn.workers.dev/" target="_blank" rel="noreferrer">Live Demo →</a>
+      </div>
     </div>
   </section>
 
@@ -501,6 +513,45 @@
     <span>© 2026 — Rizki Fermanta</span>
     <span>Technical Support · IT Operations · Web Developer</span>
   </footer>
+
+<script>
+  /* ===== INLINE SVG ICONS (pengganti Font Awesome, tanpa dependency CDN font) ===== */
+  const ICONS = {
+    'envelope': '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/>',
+    'globe': '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10Z"/>',
+    'graduation-cap': '<path d="m22 10-10-5L2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/>',
+    'bolt': '<path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/>',
+    'briefcase': '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="2" y1="13" x2="22" y2="13"/>',
+    'certificate': '<circle cx="12" cy="8" r="6"/><path d="M8.7 13.6 7 22l5-3 5 3-1.7-8.4"/>',
+    'clock': '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+    'chart-bar': '<rect x="4" y="12" width="4" height="8"/><rect x="10" y="6" width="4" height="14"/><rect x="16" y="9" width="4" height="11"/>',
+    'database': '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>',
+    'cloud': '<path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.3-2A5 5 0 0 0 6 19h11.5Z"/>',
+    'comments': '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/>',
+    'code': '<path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/>',
+    'handshake': '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+    'laptop-code': '<rect x="3" y="4" width="18" height="12" rx="1"/><path d="M2 20h20"/>',
+    'git-alt': '<circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 8v8"/><path d="M6 6h6a4 4 0 0 1 4 4"/>',
+    'google': '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>',
+    'figma': '<path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/>',
+    'wrench': '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94Z"/>',
+    'tools': '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94Z"/>',
+    'truck': '<rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8Z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>',
+    'ticket-alt': '<path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2Z"/>',
+    'table': '<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/>',
+    'search': '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+    'paper-plane': '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+    'microchip': '<rect x="6" y="6" width="12" height="12" rx="1"/><rect x="10" y="10" width="4" height="4"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/><line x1="18" y1="1" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="23"/><line x1="10" y1="20" x2="10" y2="23"/><line x1="14" y1="20" x2="14" y2="23"/><line x1="18" y1="20" x2="18" y2="23"/><line x1="1" y1="6" x2="4" y2="6"/><line x1="1" y1="10" x2="4" y2="10"/><line x1="1" y1="14" x2="4" y2="14"/><line x1="1" y1="18" x2="4" y2="18"/><line x1="20" y1="6" x2="23" y2="6"/><line x1="20" y1="10" x2="23" y2="10"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="20" y1="18" x2="23" y2="18"/>',
+    'users': '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  };
+  document.querySelectorAll('i[class*="fa-"]').forEach(el => {
+    const cls = [...el.classList].find(c => c.startsWith('fa-'));
+    if (!cls) return;
+    const key = cls.slice(3);
+    if (!ICONS[key]) return;
+    el.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[key]}</svg>`;
+  });
+</script>
 
 <script>
   /* ===== BOOT SEQUENCE ===== */
